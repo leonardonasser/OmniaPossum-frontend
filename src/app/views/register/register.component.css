@@ -1,0 +1,23 @@
+[nz-form] {
+    max-width: 500px;
+  }
+
+  .phone-select {
+    width: 70px;
+  }
+
+  .register-are {
+    margin-bottom: 8px;
+  }
+
+  .formsAll{
+      padding-left: 33%;
+      padding-top: 20px;
+  }
+
+  .logo{
+    padding-top: 100px;
+    padding-left: 48%;
+    padding-right: 42%;
+    
+}
