@@ -1,0 +1,5 @@
+<app-page-header title="Motoristas" pretitle="Editar"></app-page-header>
+
+<nz-card [nzLoading]="loading">
+    <app-motorista-form *ngIf="motorista != null" [motorista]="motorista"></app-motorista-form>
+</nz-card>

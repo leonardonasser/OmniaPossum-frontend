@@ -1,0 +1,198 @@
+<div class="app-login">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-7 col-lg-5 my-5">
+    
+         <div class="logo">
+      <img style=" width: 100%;
+      height: 100%; width: 16em;" src="https://www.gaccbahia.org.br/images/global/voluntariado.png" > 
+    </div>  
+
+
+<!--   <h1 class="text-white text-center">RegistroKM</h1> -->
+        <nz-card class="shadow-lg">
+
+          <form
+            *ngIf="!mostrarResetSenha && !mostrarCriarUsuario"
+            nz-form
+            nzLayout="vertical"
+            [formGroup]="loginForm"
+            (ngSubmit)="submitLoginForm()"
+          >
+            <h2 class="m-b-0 text-center">Faça seu login</h2>
+            <div class="text-center mt-4">
+              <small>versão: 1.0.0.0-BETA</small>
+            </div>
+
+            <nz-form-item>
+              <nz-form-label nzFor="email">E-mail</nz-form-label>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="user">
+                  <input type="text" nz-input formControlName="email" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label nzFor="senha">Senha</nz-form-label>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="lock">
+                  <input type="password" nz-input formControlName="senha" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+
+            <button
+              nz-button
+              [nzType]="'primary'"
+              nzBlock
+              nzSize="large"
+              class="mt-4"
+              [nzLoading]="loading"
+            >
+              Entrar
+            </button>
+
+            <button
+              nz-button
+              nzBlock
+              nzSize="large"
+              class="btn-outline-warning mt-4"
+              (click)="mostrarResetSenha = true"
+            >
+              Esqueci minha senha
+            </button>
+
+            
+            <div class="text-center mt-4">
+              <button
+                      type="button"
+                      nz-button
+                      nzType="link"
+                      (click)="mostrarCriarUsuario = true"
+              >
+                Não tem usuário? Cadastre-se aqui.
+              </button>
+            </div>
+            
+          </form>
+
+          <form
+            *ngIf="mostrarResetSenha"
+            nz-form
+            nzLayout="vertical"
+            [formGroup]="resetSenhaForm"
+            (ngSubmit)="submitResetSenhaForm()"
+          >
+            <h2 class="text-center mb-4">Esqueci minha senha</h2>
+
+            <p class="text-muted">
+              Um email será enviado com as instruções para resetar sua senha.
+            </p>
+
+            <nz-form-item>
+              <nz-form-label nzFor="email">E-mail</nz-form-label>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="user">
+                  <input type="text" nz-input formControlName="email" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+
+            <button
+              nz-button
+              [nzType]="'primary'"
+              nzBlock
+              nzSize="large"
+              class="mt-4"
+              [nzLoading]="loading"
+            >
+              Enviar
+            </button>
+
+            <div class="text-center mt-4">
+              <button
+                type="button"
+                nz-button
+                nzType="link"
+                (click)="mostrarResetSenha = false"
+              >
+                Voltar para login
+              </button>
+            </div>
+          </form>
+
+          <form
+                  *ngIf="mostrarCriarUsuario == true"
+                  nz-form
+                  nzLayout="vertical"
+                  [formGroup]="criarUsuarioForm"
+                  (ngSubmit)="submitCriarUsuarioForm()"
+          >
+            <h2 class="text-center mb-4">Cadastre o seu usuário</h2>
+
+            <nz-form-item>
+              <nz-form-label nzFor="nome">Nome</nz-form-label>
+              <nz-form-control>
+                <input type="text" nz-input formControlName="nome" />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label nzFor="email">E-mail</nz-form-label>
+              <nz-form-control>
+                <input type="email" nz-input formControlName="email" />
+              </nz-form-control>
+            </nz-form-item>
+
+
+            <nz-form-item>
+              <nz-form-label nzFor="cep">Cep</nz-form-label>
+              <nz-form-control>
+                <input type="number" nz-input formControlName="cep" />
+              </nz-form-control>
+            </nz-form-item>
+
+
+            <nz-form-item>
+              <nz-form-label nzFor="senha">Senha</nz-form-label>
+              <nz-form-control>
+                <input type="password" nz-input formControlName="senha" />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label nzFor="senhaConfirma">Confirma a Senha</nz-form-label>
+              <nz-form-control>
+                <input type="password" nz-input formControlName="senhaConfirma" />
+              </nz-form-control>
+            </nz-form-item>
+
+            <button
+                    nz-button
+                    [nzType]="'primary'"
+                    nzBlock
+                    nzSize="large"
+                    class="mt-4"
+                    [nzLoading]="loading"
+            >
+              Cadastrar
+            </button>
+
+            <div class="text-center mt-4">
+              <button
+                      type="button"
+                      nz-button
+                      nzType="link"
+                      (click)="mostrarCriarUsuario = false"
+              >
+                Voltar para login
+              </button>
+            </div>
+          </form>
+
+        </nz-card>
+      </div>
+    </div>
+  </div>
+</div>

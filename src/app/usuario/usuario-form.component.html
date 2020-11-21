@@ -1,0 +1,109 @@
+<form
+        nz-form
+        nzLayout="vertical"
+        [formGroup]="form"
+        (ngSubmit)="submit()"
+>
+
+    <div class="row">
+        <div class="col">
+            <nz-form-item>
+                <nz-form-label nzFor="nome">Nome</nz-form-label>
+                <nz-form-control>
+                    <input type="text" nz-input formControlName="nome" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div class="col">
+            <nz-form-item>
+                <nz-form-label nzFor="email">E-mail</nz-form-label>
+                <nz-form-control>
+                    <input type="text" nz-input formControlName="email" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col">
+            <nz-form-item>
+                <nz-form-label nzFor="cpf">CPF</nz-form-label>
+                <nz-form-control>
+                    <input type="text" nz-input formControlName="cpf" placeholder="000.000.000-00" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <div class="col"></div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col">
+            <nz-form-item>
+                <nz-form-label nzFor="senha">Senha</nz-form-label>
+                <nz-form-control>
+                    <input type="password" nz-input formControlName="senha" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <div class="col">
+            <nz-form-item>
+                <nz-form-label nzFor="senhaConfirma">Confirma a Senha</nz-form-label>
+                <nz-form-control>
+                    <input type="password" nz-input formControlName="senhaConfirma" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+            <nz-form-item>
+                <nz-form-label nzFor="role">Tipo</nz-form-label>
+                <nz-form-control>
+                    <nz-radio-group formControlName="role">
+                        <label nz-radio-button nzValue="ADMIN">Administrador</label>
+                        <label nz-radio-button nzValue="MOTORISTA">Motorista</label>
+                    </nz-radio-group>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+
+        <div class="col">
+            <nz-form-item>
+                <nz-form-label nzFor="situacao">Status</nz-form-label>
+                <nz-form-control>
+                    <nz-radio-group formControlName="situacao">
+<!--                        <label nz-radio-button nzValue="PENDENTE">Pendente</label>-->
+                        <label nz-radio-button nzValue="ATIVO">Ativo</label>
+                        <label nz-radio-button nzValue="INATIVO">Inativo</label>
+                    </nz-radio-group>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+    <nz-divider></nz-divider>
+
+    <div class="text-right spacing-between">
+        <button type="button" nz-button (click)="voltar()">
+            <i nz-icon nzType="left"></i>
+            Voltar
+        </button>
+
+        <button
+                nz-button
+                nzType="primary"
+                [nzLoading]="loading"
+        >
+            Salvar
+        </button>
+    </div>
+
+</form>
